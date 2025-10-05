@@ -1,4 +1,0 @@
-vosk
-pyttsx3
-wikipedia
-requests

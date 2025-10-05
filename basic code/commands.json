@@ -1,5 +1,0 @@
-{
-  "open notepad": "notepad.exe",
-  "open chrome": "C:/Program Files/Google/Chrome/Application/chrome.exe",
-  "shutdown": "shutdown /s /t 1"
-}

@@ -1,31 +1,35 @@
+# nlp_module.py
 from textblob import TextBlob
 
 def get_intent(command):
     text = TextBlob(command.lower())
+    cmd = " ".join(text.words)
 
-    if "time" in text.words:
+    if "time" in cmd or "clock" in cmd:
         return "time"
-    elif "date" in text.words:
+    elif "date" in cmd or "day" in cmd:
         return "date"
-    elif "calculate" in text.words:
+    elif "calculate" in cmd or "plus" in cmd or "minus" in cmd or "divide" in cmd or "times" in cmd:
         return "calculate"
-    elif "joke" in text.words:
+    elif "joke" in cmd or "funny" in cmd:
         return "joke"
-    elif "hindi" in text.words:
+    elif "hindi" in cmd:
         return "hindi"
-    elif "english" in text.words:
+    elif "english" in cmd:
         return "english"
-    if "notepad" in text.words:
+    elif "notepad" in cmd:
         return "open_notepad"
-    elif "calculator" in text.words:
+    elif "calculator" in cmd:
         return "open_calculator"
-    elif "search" in text.words:
+    elif "search" in cmd or "google" in cmd:
         return "search_google"
-    elif "search" in text.words:
-        return "search_google"
-    elif "music" in text.words or "song" in text.words:
+    elif "music" in cmd or "song" in cmd:
         return "play_music"
-    elif "youtube" in text.words:
+    elif "youtube" in cmd:
         return "open_youtube"
+    elif "shutdown" in cmd or "shut down" in cmd:
+        return "shutdown"
+    elif "weather" in cmd:
+        return "weather"
     else:
         return "unknown"
