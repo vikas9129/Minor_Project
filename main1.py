@@ -96,7 +96,28 @@ def perform_task(command):
             else:
                 speak("Sorry, I can’t do that offline.")
         else:
-            speak("Sorry, I didn't understand that command.")
+            speak("Sorry, it is out bound !!.")
+    # Fallback Chat Mode
+            # try:
+            #     if is_connected():
+            #         import openai
+            #         openai.api_key = "YOUR_API_KEY"  # <-- put your key here
+            #         response = openai.ChatCompletion.create(
+            #             model="gpt-3.5-turbo",
+            #             messages=[
+            #                        {"role": "system", "content": "You are a friendly voice assistant named NiteeshAI."},
+            #                         {"role": "user", "content": command}
+            #          ]
+            #   )
+            #         reply = response['choices'][0]['message']['content']
+            #         speak(reply)
+            #     else:
+            #         speak("I'm offline right now, so I can't chat. But you can use offline commands.")
+            # except Exception as e:
+            #     print("Chat error:", e)
+            #     speak("There was an issue while chatting.")
+
+            
 
     # Run every task in a separate thread so the mic keeps running
     threading.Thread(target=_run_task, daemon=True).start()
